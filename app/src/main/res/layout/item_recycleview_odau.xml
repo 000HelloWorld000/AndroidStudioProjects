@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:layout_marginTop="10dp"
+    android:orientation="vertical"
+    android:id="@+id/cardview">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/btnDatCho"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@color/red"
+            android:drawableTop="@drawable/phone_receiver"
+            android:text="Dat cho"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgAnhNhaTro" />
+
+        <ImageView
+            android:id="@+id/imgAnhNhaTro"
+            android:layout_width="0dp"
+            android:layout_height="180dp"
+            android:layout_marginTop="8dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtDiaChi"
+            tools:srcCompat="@tools:sample/avatars[0]" />
+
+        <ImageView
+            android:id="@+id/imgBinhLuan"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:src="@color/red"
+            android:text="6.8"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnDatCho" />
+
+        <ImageView
+            android:id="@+id/imgBinhLuan2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:layout_constraintEnd_toEndOf="@+id/imgBinhLuan"
+            app:layout_constraintStart_toStartOf="@+id/imgBinhLuan"
+            app:layout_constraintTop_toTopOf="@+id/txtTieuDeBinhLuan2"
+            app:srcCompat="?attr/colorError" />
+
+        <TextView
+            android:id="@+id/txtDiemNhaTro"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/background_circle"
+            android:gravity="center"
+            android:text="0.0"
+            android:textColor="@color/white"
+            android:textSize="15dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView8"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txt_TenNhaTro_ODau"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="9dp"
+            android:text="Ten nha tro"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toStartOf="@+id/txtKm"
+            app:layout_constraintStart_toEndOf="@+id/txtDiemNhaTro"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtDiaChi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="Dia chi"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toStartOf="@+id/txtKm"
+            app:layout_constraintStart_toStartOf="@+id/txt_TenNhaTro_ODau"
+            app:layout_constraintTop_toBottomOf="@+id/txt_TenNhaTro_ODau" />
+
+        <TextView
+            android:id="@+id/txtKm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="6 km"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/txtDiaChi"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_TenNhaTro_ODau" />
+
+        <TextView
+            android:id="@+id/txtTieuDeBinhLuan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="Ten nha tro"
+            android:textStyle="bold"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toStartOf="@+id/txtDiem"
+            app:layout_constraintStart_toEndOf="@+id/imgBinhLuan"
+            app:layout_constraintTop_toBottomOf="@+id/btnDatCho" />
+
+        <TextView
+            android:id="@+id/txtNoiDungBinhLuan"
+            android:layout_width="0dp"
+            android:layout_height="19dp"
+            android:layout_marginTop="8dp"
+            android:text="Dia chi"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="@+id/txtTieuDeBinhLuan"
+            app:layout_constraintStart_toStartOf="@+id/txtTieuDeBinhLuan"
+            app:layout_constraintTop_toBottomOf="@+id/txtTieuDeBinhLuan" />
+
+        <TextView
+            android:id="@+id/txtTieuDeBinhLuan2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="TextView"
+            android:textColor="#FDFFFFFF"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/txtNoiDungBinhLuan"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/txtNoiDungBinhLuan"
+            app:layout_constraintTop_toBottomOf="@+id/txtNoiDungBinhLuan" />
+
+        <TextView
+            android:id="@+id/txtNoiDungBinhLuan2"
+            android:layout_width="0dp"
+            android:layout_height="19dp"
+            android:layout_marginTop="8dp"
+            android:text="TextView"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="@+id/txtTieuDeBinhLuan2"
+            app:layout_constraintStart_toStartOf="@+id/txtTieuDeBinhLuan2"
+            app:layout_constraintTop_toBottomOf="@+id/txtTieuDeBinhLuan2" />
+
+        <TextView
+            android:id="@+id/txtDiem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6.0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/txtTieuDeBinhLuan" />
+
+        <TextView
+            android:id="@+id/txtDiem2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="6.0"
+            app:layout_constraintBottom_toBottomOf="@+id/txtTieuDeBinhLuan2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/txtTieuDeBinhLuan2" />
+
+        <TextView
+            android:id="@+id/txtTongDiemBinhLuan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:drawableLeft="@drawable/chat"
+            android:drawablePadding="10dp"
+            android:gravity="center"
+            android:text="11"
+            app:layout_constraintEnd_toStartOf="@+id/txtTongAnhBinhLuan"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtNoiDungBinhLuan2" />
+
+        <TextView
+            android:id="@+id/txtTongAnhBinhLuan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/photo_camera"
+            android:drawablePadding="10dp"
+            android:gravity="center"
+            android:text="11"
+            app:layout_constraintBottom_toBottomOf="@+id/txtTongDiemBinhLuan"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/txtTongDiemBinhLuan"
+            app:layout_constraintTop_toTopOf="@+id/txtTongDiemBinhLuan" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

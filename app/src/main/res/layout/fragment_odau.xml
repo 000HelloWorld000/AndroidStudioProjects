@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".View.Home"
+    android:background="#8D8787"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    >
+
+    <RadioGroup
+        android:id="@+id/rdgroup_tab_odau"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
+
+        <RadioButton
+            android:id="@+id/rd_moinhat_tabodau"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:button="@color/transparent"
+            android:checked="true"
+            android:gravity="center"
+            android:text="Moi nhat`"
+            android:textColor="@drawable/changetext_button" />
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent" />
+
+        <RadioButton
+            android:id="@+id/rd_danhmuc_tabodau"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:button="@color/transparent"
+            android:gravity="center"
+            android:text="Danh muc"
+            android:textColor="@drawable/changetext_button" />
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent" />
+        <RadioButton
+            android:id="@+id/rd_khuvuc_tabodau"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:button="@color/transparent"
+            android:gravity="center"
+            android:text="Khu vuc"
+            android:textColor="@drawable/changetext_button" />
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent" />
+    </RadioGroup>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestTedScroll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rdgroup_tab_odau">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_gantoi_tabodau"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/round_button"
+                    android:drawableLeft="@drawable/nearby"
+                    android:drawablePadding="20dp"
+                    android:gravity="left | center"
+                    android:text="Gần tôi "
+                    android:textAllCaps="false"
+                    android:textColor="@drawable/changetext_button" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/round_button"
+                    android:drawableLeft="@drawable/door"
+                    android:drawablePadding="20dp"
+                    android:gravity="left | center"
+                    android:text="Còn trống"
+                    android:textAllCaps="false"
+                    android:textColor="@drawable/changetext_button" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/round_button"
+                    android:drawableLeft="@drawable/joystick"
+                    android:drawablePadding="20dp"
+                    android:gravity="left | center"
+                    android:text="Game and Fun "
+                    android:textAllCaps="false"
+                    android:textColor="@drawable/changetext_button" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/round_button"
+                    android:drawableLeft="@drawable/review"
+                    android:drawablePadding="20dp"
+                    android:gravity="left | center"
+                    android:text="Đánh giá"
+                    android:textAllCaps="false"
+                    android:textColor="@drawable/changetext_button" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/round_button"
+                    android:drawableLeft="@drawable/analyst"
+                    android:drawablePadding="20dp"
+                    android:gravity="left | center"
+                    android:text="Top thành viên "
+                    android:textAllCaps="false"
+                    android:textColor="@drawable/changetext_button" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/round_button"
+                    android:drawableLeft="@drawable/blogger"
+                    android:drawablePadding="20dp"
+                    android:gravity="left | center"
+                    android:text="Blog"
+                    android:textAllCaps="false"
+
+                    android:textColor="@drawable/changetext_button" />
+            </LinearLayout>
+
+
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycle_odau"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </androidx.recyclerview.widget.RecyclerView>
+            <ProgressBar
+                android:id="@+id/progress_barODau"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp" />
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
