@@ -1,8 +1,10 @@
- package com.example.appnhatro;
+package com.example.appnhatro.View;
+
+import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Bundle;
+import com.example.appnhatro.R;
 
 public class CapNhatDSWiFI extends AppCompatActivity {
 

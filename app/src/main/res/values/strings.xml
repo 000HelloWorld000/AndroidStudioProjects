@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">AppNhaTro</string>
+    <string name="Hoac">Hoac</string>
+    <string name="facebook_app_id">383224769018825</string>
+    <string name="fb_login_protocol_scheme">fb383224769018825</string>
+    <string name="loading">Dang tai...</string>
+    <string name="myemail">xuannghi241097@gmail.com</string>
+    <string name="google">Dang nhap bang Google</string>
+    <string name="facebook">Dang nhap bang Facebook</string>
+    <string name="dieukhoan">Viec dang nhap se giup ban vao trai nghiem ung dung cua chung toi va hay tan huong no</string>
+    <string name="quenmk">Quen mat khau</string>
+    <string name="chuacotk">Ban chua co tai khoan?</string>
+    <string name="thongbaoloi">Ban chua nhap</string>
+    <string name="thanhcong">Ban da dang ky thanh cong</string>
+    <string name="DangXuly">Dang Xu ly</string>
+    <string name="chuoikhoiphucmatkhau">Ban vui long nhap dia chi Email vao khung</string>
+    <string name="chuoithanhvien">Ban co phai la thanh vien ?</string>
+    <string name="dangky">Dang ky</string>
+    <string name="emailkhonghople">Email nay khong hop le</string>
+    <string name="success">Gui email thanh cong</string>
+    <string name="Thich">Thich</string>
+    <string name="checkin">Check-In</string>
+    <string name="Binhluan">Binh Luan</string>
+    <string name="share">Chia se</string>
+    <string name="taianh">Tai anh</string>
+    <string name="Luulai">Luu lai</string>
+    <string name="dangmocua">Dang mo cua</string>
+    <string name="dangdongcua">Dang dong cua</string>
+</resources>
