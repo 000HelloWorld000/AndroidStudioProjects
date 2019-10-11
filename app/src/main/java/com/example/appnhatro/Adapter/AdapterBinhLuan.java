@@ -26,29 +26,15 @@ public class AdapterBinhLuan extends RecyclerView.Adapter<AdapterBinhLuan.ViewHo
     Context context;
     int layout;
     List<BinhLuanModel> binhLuanModelList;
-    List<Bitmap> bitmapList;
 
-    public AdapterBinhLuan(Context context, int layout, List<BinhLuanModel> binhLuanModelList)
-    {
+
+    public AdapterBinhLuan(Context context, int layout, List<BinhLuanModel> binhLuanModelList) {
         this.context = context;
         this.layout = layout;
         this.binhLuanModelList = binhLuanModelList;
-        bitmapList = new ArrayList<>();
-    }
-    public class ViewHolderBinhLuan extends RecyclerView.ViewHolder {
-        ImageView AnhbDaiDienBinhLuan;
-        RecyclerView recyclerViewHinhBinhLuan;
-        TextView txtTieudebinhluan,txtNoiDungBInhluan,txtDiemBinhLuan;
-        public ViewHolderBinhLuan(@NonNull View itemView) {
-            super(itemView);
-            txtTieudebinhluan = itemView.findViewById(R.id.txtTieuDeBinhLuan);
-            txtNoiDungBInhluan = itemView.findViewById(R.id.txtNoiDungBinhLuan);
-            txtDiemBinhLuan = itemView.findViewById(R.id.txtDiem);
-            AnhbDaiDienBinhLuan = itemView.findViewById(R.id.imgBinhLuan);
-            recyclerViewHinhBinhLuan =  itemView.findViewById(R.id.recycle_anhbinhluan);
 
-        }
     }
+
     @NonNull
     @Override
     public AdapterBinhLuan.ViewHolderBinhLuan onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -59,26 +45,26 @@ public class AdapterBinhLuan extends RecyclerView.Adapter<AdapterBinhLuan.ViewHo
 
     @Override
     public void onBindViewHolder(@NonNull final ViewHolderBinhLuan holder, int position) {
+        final List<Bitmap> bitmapList;
+        bitmapList = new ArrayList<>();
         final BinhLuanModel binhLuanModel = binhLuanModelList.get(position);
         holder.txtTieudebinhluan.setText(binhLuanModel.getTieude());
         holder.txtNoiDungBInhluan.setText(binhLuanModel.getNoidung());
-        holder.txtDiemBinhLuan.setText(binhLuanModel.getChamdiem()+"");
-        setHinhAnhBinhLuan(holder.AnhbDaiDienBinhLuan,binhLuanModel.getThanhVienModel().getHinhAnh());
+        holder.txtDiemBinhLuan.setText(binhLuanModel.getChamdiem() + "");
+        setHinhAnhBinhLuan(holder.AnhbDaiDienBinhLuan, binhLuanModel.getThanhVienModel().getHinhAnh());
 
-        for(String linkhinh : binhLuanModel.getHinhBinhLuanList())
-        {
+        for (String linkhinh : binhLuanModel.getHinhBinhLuanList()) {
 
-            StorageReference storageAnhUser= FirebaseStorage.getInstance().getReference().child("hinhbinhluan").child(linkhinh);
-            long ONEMEGABYTE =1024*1024;
+            StorageReference storageAnhUser = FirebaseStorage.getInstance().getReference().child("hinhbinhluan").child(linkhinh);
+            long ONEMEGABYTE = 1024 * 1024;
             storageAnhUser.getBytes(ONEMEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
                 @Override
                 public void onSuccess(byte[] bytes) {
-                    Bitmap bitmap = BitmapFactory.decodeByteArray(bytes,0,bytes.length);
+                    Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
                     bitmapList.add(bitmap);
-                    if(bitmapList.size() == binhLuanModel.getHinhBinhLuanList().size())
-                    {
-                        AdapterRecycleAnhBinhLuan adapterRecycleAnhBinhLuan = new AdapterRecycleAnhBinhLuan(context,R.layout.item_anhbinhluan,bitmapList,binhLuanModel,false);
-                        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(context,2);
+                    if (bitmapList.size() == binhLuanModel.getHinhBinhLuanList().size()) {
+                        AdapterRecycleAnhBinhLuan adapterRecycleAnhBinhLuan = new AdapterRecycleAnhBinhLuan(context, R.layout.item_anhbinhluan, bitmapList, binhLuanModel, false);
+                        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(context, 2);
                         holder.recyclerViewHinhBinhLuan.setLayoutManager(layoutManager);
                         holder.recyclerViewHinhBinhLuan.setAdapter(adapterRecycleAnhBinhLuan);
                         adapterRecycleAnhBinhLuan.notifyDataSetChanged();
@@ -88,27 +74,42 @@ public class AdapterBinhLuan extends RecyclerView.Adapter<AdapterBinhLuan.ViewHo
         }
 
     }
-    private void setHinhAnhBinhLuan(final ImageView imageView, String linkuser)
-    {
-        StorageReference storageAnhUser= FirebaseStorage.getInstance().getReference().child("anhuser").child(linkuser);
-        long ONEMEGABYTE =1024*1024;
+
+    private void setHinhAnhBinhLuan(final ImageView imageView, String linkuser) {
+        StorageReference storageAnhUser = FirebaseStorage.getInstance().getReference().child("anhuser").child(linkuser);
+        long ONEMEGABYTE = 1024 * 1024;
         storageAnhUser.getBytes(ONEMEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
             @Override
             public void onSuccess(byte[] bytes) {
-                Bitmap bitmap = BitmapFactory.decodeByteArray(bytes,0,bytes.length);
+                Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
                 imageView.setImageBitmap(bitmap);
             }
         });
     }
+
     @Override
     public int getItemCount() {
         int sobinhluan = binhLuanModelList.size();
-        if(sobinhluan >5)
-        {
+        if (sobinhluan > 5) {
             return 5;
-        }
-        else {
+        } else {
             return binhLuanModelList.size();
+        }
+    }
+
+    public class ViewHolderBinhLuan extends RecyclerView.ViewHolder {
+        ImageView AnhbDaiDienBinhLuan;
+        RecyclerView recyclerViewHinhBinhLuan;
+        TextView txtTieudebinhluan, txtNoiDungBInhluan, txtDiemBinhLuan;
+
+        public ViewHolderBinhLuan(@NonNull View itemView) {
+            super(itemView);
+            txtTieudebinhluan = itemView.findViewById(R.id.txtTieuDeBinhLuan);
+            txtNoiDungBInhluan = itemView.findViewById(R.id.txtNoiDungBinhLuan);
+            txtDiemBinhLuan = itemView.findViewById(R.id.txtDiem);
+            AnhbDaiDienBinhLuan = itemView.findViewById(R.id.imgBinhLuan);
+            recyclerViewHinhBinhLuan = itemView.findViewById(R.id.recycle_anhbinhluan);
+
         }
     }
 

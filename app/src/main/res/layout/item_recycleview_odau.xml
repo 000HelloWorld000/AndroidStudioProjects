@@ -2,12 +2,12 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardview"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/white"
     android:layout_marginTop="10dp"
-    android:orientation="vertical"
-    android:id="@+id/cardview">
+    android:background="@color/white"
+    android:orientation="vertical">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -123,9 +123,9 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:text="Ten nha tro"
-            android:textStyle="bold"
             android:textAllCaps="false"
             android:textColor="@color/white"
+            android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/txtDiem"
             app:layout_constraintStart_toEndOf="@+id/imgBinhLuan"
             app:layout_constraintTop_toBottomOf="@+id/btnDatCho" />
@@ -135,9 +135,9 @@
             android:layout_width="0dp"
             android:layout_height="19dp"
             android:layout_marginTop="8dp"
-            android:text="Dia chi"
             android:ellipsize="end"
             android:singleLine="true"
+            android:text="Dia chi"
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="@+id/txtTieuDeBinhLuan"
             app:layout_constraintStart_toStartOf="@+id/txtTieuDeBinhLuan"
@@ -161,9 +161,9 @@
             android:layout_width="0dp"
             android:layout_height="19dp"
             android:layout_marginTop="8dp"
-            android:text="TextView"
             android:ellipsize="end"
             android:singleLine="true"
+            android:text="TextView"
             android:textColor="#FFFFFF"
             app:layout_constraintEnd_toEndOf="@+id/txtTieuDeBinhLuan2"
             app:layout_constraintStart_toStartOf="@+id/txtTieuDeBinhLuan2"

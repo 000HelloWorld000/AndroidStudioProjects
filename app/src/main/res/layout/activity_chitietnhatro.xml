@@ -7,115 +7,117 @@
     android:background="#FFFFFF"
     tools:context=".View.Activity_chitietnhatro">
 
-    <include
-        layout="@layout/toolbar_layout"
-        />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@color/colorPrimaryDark"
         android:layout_marginTop="?attr/actionBarSize"
-        >
+        android:background="@color/colorPrimaryDark"
+        android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
+            android:orientation="horizontal">
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@color/black"
                 android:drawableTop="@drawable/like"
+                android:paddingTop="5dp"
                 android:text="@string/Thich"
                 android:textAllCaps="false"
-                android:background="@color/black"
-                android:textColor="@color/white"
-                android:paddingTop="5dp"
-                />
+                android:textColor="@color/white" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@color/black"
                 android:drawableTop="@drawable/maps_and_flags"
+                android:paddingTop="5dp"
                 android:text="@string/checkin"
-                android:background="@color/black"
-                android:textColor="@color/white"
                 android:textAllCaps="false"
-                android:paddingTop="5dp"/>
+                android:textColor="@color/white" />
 
             <Button
+                android:id="@+id/btnBinhLuan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@color/black"
-                android:textColor="@color/white"
                 android:drawableTop="@drawable/satisfaction"
+                android:gravity="center"
+                android:paddingTop="5dp"
                 android:text="@string/Binhluan"
-                android:gravity="center"
-                android:paddingTop="5dp"
-                android:textAllCaps="false" />
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@color/black"
-                android:textColor="@color/white"
-                android:drawableTop="@drawable/bookmark"
-                android:text="@string/Luulai"
-                android:gravity="center"
-                android:paddingTop="5dp"
-                android:textAllCaps="false" />
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@color/black"
+                android:drawableTop="@drawable/bookmark"
+                android:gravity="center"
                 android:paddingTop="5dp"
-                android:textColor="@color/white"
+                android:text="@string/Luulai"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:background="@color/black"
                 android:drawableTop="@drawable/back"
+                android:paddingTop="5dp"
                 android:text="@string/share"
-                android:textAllCaps="false" />
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
 
         </LinearLayout>
+
         <androidx.core.widget.NestedScrollView
             android:id="@+id/nestTedScrollChiTiet"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:background="@color/white">
+                android:background="@color/white"
+                android:orientation="vertical">
                 >
-                <ImageView
-                    android:id="@+id/imgAnhChiTietNhaTro"
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:layout_weight="1"
-                    app:srcCompat="@drawable/images"
-                    android:scaleType="fitXY"/>
-                <TextView
-                    android:id="@+id/txtTenNhatro"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="nha t"
-                    android:textColor="@color/black"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:paddingTop="5dp"
-                    android:paddingLeft="5dp"/>
 
-                <View
+                <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/black"
-                    android:layout_marginTop="10dp"/>
+                    android:layout_height="150dp"
+                    android:layout_weight="1">
 
+
+                    <ImageView
+                        android:id="@+id/imgAnhChiTietNhaTro"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY"
+                        app:srcCompat="@drawable/images" />
+
+                    <ImageView
+                        android:id="@+id/imgPlay"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        app:srcCompat="@android:drawable/ic_media_play" />
+
+                    <VideoView
+                        android:id="@+id/videoTrailer"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center" />
+                </FrameLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -131,18 +133,18 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/txtSoAnh"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="123"
-                            android:id="@+id/txtSoAnh"
                             android:textColor="@color/black" />
 
                         <TextView
+                            android:id="@+id/txtTaiAnh"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/taianh"
-                            android:textColor="@color/black"
-                            android:id="@+id/txtTaiAnh"/>
+                            android:textColor="@color/black" />
 
                     </LinearLayout>
 
@@ -154,18 +156,18 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/txtSoCheckIn"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="123"
-                            android:id="@+id/txtSoCheckIn"
                             android:textColor="@color/black" />
 
                         <TextView
+                            android:id="@+id/txtCheckIn"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/checkin"
-                            android:textColor="@color/black"
-                            android:id="@+id/txtCheckIn"/>
+                            android:textColor="@color/black" />
 
                     </LinearLayout>
 
@@ -177,18 +179,18 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/txtSoBinhLuan"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="123"
-                            android:id="@+id/txtSoBinhLuan"
                             android:textColor="@color/black" />
 
                         <TextView
+                            android:id="@+id/txtBinhLuan"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/Binhluan"
-                            android:textColor="@color/black"
-                            android:id="@+id/txtBinhLuan"/>
+                            android:textColor="@color/black" />
 
                     </LinearLayout>
 
@@ -200,69 +202,89 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/txtSoChiaSe"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="123"
-                            android:id="@+id/txtSoChiaSe"
                             android:textColor="@color/black" />
 
                         <TextView
+                            android:id="@+id/txtLuuLai"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/Luulai"
-                            android:textColor="@color/black"
-                            android:id="@+id/txtLuuLai"/>
+                            android:textColor="@color/black" />
 
                     </LinearLayout>
                 </LinearLayout>
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/black"
-                    android:layout_marginTop="10dp"/>
+
                 <LinearLayout
-                    android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
                     android:orientation="horizontal">
+
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
                         android:id="@+id/txtThoiGianMoCua"
-                        android:text="7:00 - 22:00"
-                        android:gravity="center"
-                        android:textColor="@color/black"
-                        android:layout_weight="1"/>
-                    <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/txtThoiGianDongCua"
-                        android:textColor="@color/black"
                         android:layout_weight="1"
                         android:gravity="center"
+                        android:text="7:00 - 22:00"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/txtThoiGianDongCua"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Chua mo cua"
+                        android:textColor="@color/black"
                         android:textSize="17sp"
-                        android:textStyle="bold"
-                        android:text="Chua mo cua" />
+                        android:textStyle="bold" />
                 </LinearLayout>
-                <include layout="@layout/activity_tinhnangchitietquanan"/>
+
+                <TextView
+                    android:id="@+id/txtTenNhatro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="5dp"
+                    android:text="nha t"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@color/black"
-                    android:layout_marginTop="10dp"/>
-                <include layout="@layout/layout_wifi_chitietnhatro"/>
+                    android:layout_marginTop="10dp"
+                    android:background="@color/black" />
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@color/black"
-                    android:layout_marginTop="10dp"/>
-                <include layout="@layout/layout_binhluanchitietnhatro"/>
+                    android:layout_marginTop="10dp"
+                    android:background="@color/black" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/black" />
+
+                <include layout="@layout/activity_tinhnangchitietquanan" />
+
+                <include layout="@layout/layout_wifi_chitietnhatro" />
+
+                <include layout="@layout/layout_binhluanchitietnhatro" />
 
             </LinearLayout>
 
         </androidx.core.widget.NestedScrollView>
     </LinearLayout>
 
+    <include layout="@layout/toolbar_layout" />
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

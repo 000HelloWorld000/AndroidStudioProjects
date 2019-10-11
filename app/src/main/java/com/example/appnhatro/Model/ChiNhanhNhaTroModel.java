@@ -4,19 +4,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class ChiNhanhNhaTroModel implements Parcelable {
-    String diachi,machinhanh;
-    double latitude,longtitude,khoangcach;
-
-    protected ChiNhanhNhaTroModel(Parcel in) {
-        diachi = in.readString();
-        //machinhanh = in.readString();
-        latitude = in.readDouble();
-        longtitude = in.readDouble();
-        khoangcach = in.readDouble();
-    }
-    public ChiNhanhNhaTroModel() {
-    }
-
     public static final Creator<ChiNhanhNhaTroModel> CREATOR = new Creator<ChiNhanhNhaTroModel>() {
         @Override
         public ChiNhanhNhaTroModel createFromParcel(Parcel in) {
@@ -28,6 +15,19 @@ public class ChiNhanhNhaTroModel implements Parcelable {
             return new ChiNhanhNhaTroModel[size];
         }
     };
+    String diachi, machinhanh;
+    double latitude, longtitude, khoangcach;
+
+    protected ChiNhanhNhaTroModel(Parcel in) {
+        diachi = in.readString();
+        //machinhanh = in.readString();
+        latitude = in.readDouble();
+        longtitude = in.readDouble();
+        khoangcach = in.readDouble();
+    }
+
+    public ChiNhanhNhaTroModel() {
+    }
 
     public String getDiachi() {
         return diachi;

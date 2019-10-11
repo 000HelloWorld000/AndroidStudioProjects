@@ -1,11 +1,11 @@
 package com.example.appnhatro.View;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.ViewPager;
-
 import android.os.Bundle;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import com.example.appnhatro.Adapter.AdapterViewPagerHome;
 import com.example.appnhatro.R;
@@ -13,8 +13,9 @@ import com.example.appnhatro.R;
 public class Home extends AppCompatActivity implements ViewPager.OnPageChangeListener, RadioGroup.OnCheckedChangeListener {
 
     ViewPager vp_fragment;
-    RadioButton rd_odau,rd_timgi;
+    RadioButton rd_odau, rd_timgi;
     RadioGroup radioGroup_odau_timgi;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,8 +40,7 @@ public class Home extends AppCompatActivity implements ViewPager.OnPageChangeLis
 
     @Override
     public void onPageSelected(int position) {
-        switch (position)
-        {
+        switch (position) {
             case 0:
                 rd_odau.setChecked(true);
                 break;
@@ -57,8 +57,7 @@ public class Home extends AppCompatActivity implements ViewPager.OnPageChangeLis
 
     @Override
     public void onCheckedChanged(RadioGroup radioGroup, int checkId) {
-        switch (checkId)
-        {
+        switch (checkId) {
             case R.id.rd_odau:
                 vp_fragment.setCurrentItem(0);
                 break;

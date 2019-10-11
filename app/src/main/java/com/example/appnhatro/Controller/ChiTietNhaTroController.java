@@ -12,13 +12,13 @@ public class ChiTietNhaTroController {
     WifiNhaTro wifiNhaTro;
     List<WifiNhaTro> wifiNhaTroList;
 
-    public ChiTietNhaTroController(){
+    public ChiTietNhaTroController() {
         wifiNhaTro = new WifiNhaTro();
         wifiNhaTroList = new ArrayList<>();
 
     }
 
-    public  void HienThiWiFiNhaTro(String maNhaTro, final TextView txtTenWIFI, final TextView txtWIFI, final TextView txtNgayDang){
+    public void HienThiWiFiNhaTro(String maNhaTro, final TextView txtTenWIFI, final TextView txtWIFI, final TextView txtNgayDang) {
         InterfaceChiTietNhaTro chiTietNhaTro = new InterfaceChiTietNhaTro() {
             @Override
             public void HienThiDSWifi(WifiNhaTro wifiNhaTro) {
@@ -28,6 +28,6 @@ public class ChiTietNhaTroController {
                 txtNgayDang.setText(wifiNhaTro.getNgaydang());
             }
         };
-        wifiNhaTro.LayDSWifiNhaTro(maNhaTro,chiTietNhaTro);
+        wifiNhaTro.LayDSWifiNhaTro(maNhaTro, chiTietNhaTro);
     }
 }

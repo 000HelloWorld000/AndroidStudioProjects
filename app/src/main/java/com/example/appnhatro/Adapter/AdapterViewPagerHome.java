@@ -10,17 +10,17 @@ import com.example.appnhatro.View.Fragment.FragmentTimGi;
 public class AdapterViewPagerHome extends FragmentPagerAdapter {
     FragmentODau fragmentODau;
     FragmentTimGi fragmentTimGi;
+
     public AdapterViewPagerHome(FragmentManager fm) {
         super(fm);
-         fragmentODau = new FragmentODau();
+        fragmentODau = new FragmentODau();
         fragmentTimGi = new FragmentTimGi();
 
     }
 
     @Override
     public Fragment getItem(int position) {
-        switch (position)
-        {
+        switch (position) {
             case 0:
                 return fragmentODau;
             case 1:

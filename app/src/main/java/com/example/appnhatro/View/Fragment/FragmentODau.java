@@ -16,40 +16,40 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.appnhatro.Controller.ODauController;
-
 import com.example.appnhatro.R;
-
 
 
 public class FragmentODau extends Fragment {
 
-    ODauController  oDauController;
+    ODauController oDauController;
     RecyclerView recyclerView_odau;
     ProgressBar progressBarODau;
     SharedPreferences sharedPreferences;
     NestedScrollView nestedScrollView;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_odau,container,false);
+        View view = inflater.inflate(R.layout.fragment_odau, container, false);
 
         recyclerView_odau = view.findViewById(R.id.recycle_odau);
         progressBarODau = view.findViewById(R.id.progress_barODau);
         nestedScrollView = view.findViewById(R.id.nestTedScroll);
 
         sharedPreferences = getContext().getSharedPreferences("toado", Context.MODE_PRIVATE);
-        String latitude = sharedPreferences.getString("latitude","0");
-        String longtitude = sharedPreferences.getString("longtitude","0");
+        String latitude = sharedPreferences.getString("latitude", "0");
+        String longtitude = sharedPreferences.getString("longtitude", "0");
 
         Location vitrihientai = new Location("");
         vitrihientai.setLatitude(Double.parseDouble(latitude));
         vitrihientai.setLongitude(Double.parseDouble(longtitude));
 
         oDauController = new ODauController(getContext());
-        oDauController.getDSQuanAnController(getContext(),nestedScrollView,recyclerView_odau,progressBarODau,vitrihientai);
+        oDauController.getDSQuanAnController(getContext(), nestedScrollView, recyclerView_odau, progressBarODau, vitrihientai);
 
         return view;
     }
+
     @Override
     public void onStart() {
         super.onStart();

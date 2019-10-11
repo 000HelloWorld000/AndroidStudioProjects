@@ -4,7 +4,6 @@ import android.graphics.Bitmap;
 import android.location.Location;
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 
@@ -19,13 +18,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NhaTro implements Parcelable {
+    public static final Creator<NhaTro> CREATOR = new Creator<NhaTro>() {
+        @Override
+        public NhaTro createFromParcel(Parcel in) {
+            return new NhaTro(in);
+        }
+
+        @Override
+        public NhaTro[] newArray(int size) {
+            return new NhaTro[size];
+        }
+    };
     boolean controng;
-    String giodongcua,giomocua,tennhatro,videogioithieu,manhatro;
-    List<String> tienich,listHinhAnhNhaTro;
-    Long luotthich,giatoithieu,giatoida;
+    String giodongcua, giomocua, tennhatro, videogioithieu, manhatro;
+    List<String> tienich, listHinhAnhNhaTro;
+    Long luotthich, giatoithieu, giatoida;
     List<BinhLuanModel> binhLuanModelList;
     List<ChiNhanhNhaTroModel> chiNhanhNhaTroModelList;
     List<Bitmap> bitmapList;
+    List<LauModel> lauList;
+    private DatabaseReference databaseNhatTro;
+    private DataSnapshot dataroot;
+
+
 
     protected NhaTro(Parcel in) {
         controng = in.readByte() != 0;
@@ -40,11 +55,23 @@ public class NhaTro implements Parcelable {
         giatoida = in.readLong();
         giatoithieu = in.readLong();
         chiNhanhNhaTroModelList = new ArrayList<ChiNhanhNhaTroModel>();
-        in.readTypedList(chiNhanhNhaTroModelList,ChiNhanhNhaTroModel.CREATOR);
+        in.readTypedList(chiNhanhNhaTroModelList, ChiNhanhNhaTroModel.CREATOR);
         binhLuanModelList = new ArrayList<BinhLuanModel>();
-        in.readTypedList(binhLuanModelList,BinhLuanModel.CREATOR);
+        in.readTypedList(binhLuanModelList, BinhLuanModel.CREATOR);
 
 
+    }
+
+    public NhaTro() {
+        databaseNhatTro = FirebaseDatabase.getInstance().getReference();
+    }
+
+    public List<LauModel> getLauList() {
+        return lauList;
+    }
+
+    public void setLauList(List<LauModel> lauList) {
+        this.lauList = lauList;
     }
 
     public Long getGiatoithieu() {
@@ -62,18 +89,6 @@ public class NhaTro implements Parcelable {
     public void setGiatoida(Long giatoida) {
         this.giatoida = giatoida;
     }
-
-    public static final Creator<NhaTro> CREATOR = new Creator<NhaTro>() {
-        @Override
-        public NhaTro createFromParcel(Parcel in) {
-            return new NhaTro(in);
-        }
-
-        @Override
-        public NhaTro[] newArray(int size) {
-            return new NhaTro[size];
-        }
-    };
 
     public List<Bitmap> getBitmapList() {
         return bitmapList;
@@ -97,12 +112,6 @@ public class NhaTro implements Parcelable {
 
     public void setBinhLuanModelList(List<BinhLuanModel> binhLuanModelList) {
         this.binhLuanModelList = binhLuanModelList;
-    }
-
-    private DatabaseReference databaseNhatTro ;
-
-    public NhaTro() {
-        databaseNhatTro = FirebaseDatabase.getInstance().getReference();
     }
 
     public List<String> getListHinhAnhNhaTro() {
@@ -177,13 +186,12 @@ public class NhaTro implements Parcelable {
         this.tienich = tienich;
     }
 
-    private DataSnapshot dataroot;
-    public void getDSNhaTro(final InterFaceODau interFaceODau, final Location vitrihientai, final int itemtieptheo, final int itembandau ){
+    public void getDSNhaTro(final InterFaceODau interFaceODau, final Location vitrihientai, final int itemtieptheo, final int itembandau) {
         final ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 dataroot = dataSnapshot;
-                LayDSQuanAn(dataSnapshot,interFaceODau,vitrihientai,itemtieptheo,itembandau);
+                LayDSQuanAn(dataSnapshot, interFaceODau, vitrihientai, itemtieptheo, itembandau);
             }
 
             @Override
@@ -191,29 +199,24 @@ public class NhaTro implements Parcelable {
 
             }
         };
-        if(dataroot != null)
-        {
-            LayDSQuanAn(dataroot,interFaceODau,vitrihientai,itemtieptheo,itembandau);
-        }
-        else {
+        if (dataroot != null) {
+            LayDSQuanAn(dataroot, interFaceODau, vitrihientai, itemtieptheo, itembandau);
+        } else {
             databaseNhatTro.addListenerForSingleValueEvent(valueEventListener);
         }
 
 
     }
-    private void LayDSQuanAn(DataSnapshot dataSnapshot,InterFaceODau interFaceODau, Location vitrihientai,int itemtieptheo,int itembandau)
-    {
+
+    private void LayDSQuanAn(DataSnapshot dataSnapshot, InterFaceODau interFaceODau, Location vitrihientai, int itemtieptheo, int itembandau) {
         DataSnapshot dataNhaTro = dataSnapshot.child("nhatros");
         //DS nha tro
-        int i=0;//Dem load dc bao nhieu nha tro r
-        for(DataSnapshot dataSnapshotValue: dataNhaTro.getChildren())
-        {
-            if(i == itemtieptheo)
-            {
+        int i = 0;//Dem load dc bao nhieu nha tro r
+        for (DataSnapshot dataSnapshotValue : dataNhaTro.getChildren()) {
+            if (i == itemtieptheo) {
                 break;
             }
-            if(i < itembandau)
-            {
+            if (i < itembandau) {
                 i++;
                 continue;
             }
@@ -223,9 +226,8 @@ public class NhaTro implements Parcelable {
 
             //Lay DS hinh anh cua quan an theo ma
             DataSnapshot dataHinhAnh = dataSnapshot.child("hinhanhnhatros").child(dataSnapshotValue.getKey());
-            List<String> dsHinh =new ArrayList<>();
-            for (DataSnapshot valueHinhAnh : dataHinhAnh.getChildren())
-            {
+            List<String> dsHinh = new ArrayList<>();
+            for (DataSnapshot valueHinhAnh : dataHinhAnh.getChildren()) {
                 dsHinh.add(valueHinhAnh.getValue(String.class));
             }
 
@@ -234,8 +236,7 @@ public class NhaTro implements Parcelable {
             //lay ds binh luan cua quan an
             DataSnapshot snapshotBinhLuan = dataSnapshot.child("binhluans").child(nhaTroModel.getManhatro());
             List<BinhLuanModel> binhLuanModels = new ArrayList<>();
-            for(DataSnapshot vaueBinhLuan : snapshotBinhLuan.getChildren())
-            {
+            for (DataSnapshot vaueBinhLuan : snapshotBinhLuan.getChildren()) {
                 BinhLuanModel binhLuanModel = vaueBinhLuan.getValue(BinhLuanModel.class);
                 binhLuanModel.setMabinhluan(vaueBinhLuan.getKey());
                 ThanhVienModel thanhVienModel = dataSnapshot.child("thanhviens").child(binhLuanModel.getMauser()).getValue(ThanhVienModel.class);
@@ -243,8 +244,7 @@ public class NhaTro implements Parcelable {
                 List<String> hinhBinhLuans = new ArrayList<>();
 
                 DataSnapshot snapshotHinhAnhBinhLuan = dataSnapshot.child("hinhanhbinhluans").child(binhLuanModel.getMabinhluan());
-                for (DataSnapshot anhBinhLuans : snapshotHinhAnhBinhLuan.getChildren())
-                {
+                for (DataSnapshot anhBinhLuans : snapshotHinhAnhBinhLuan.getChildren()) {
                     hinhBinhLuans.add(anhBinhLuans.getValue(String.class));
                 }
                 binhLuanModel.setHinhBinhLuanList(hinhBinhLuans);
@@ -255,14 +255,13 @@ public class NhaTro implements Parcelable {
             //lay chi nhanh nha tro
             DataSnapshot chinhanhnhatro = dataSnapshot.child("chinhanhnhatros").child(nhaTroModel.getManhatro());
             List<ChiNhanhNhaTroModel> chiNhanhNhaTroModels = new ArrayList<>();
-            for(DataSnapshot valueChiNhanhNhatro : chinhanhnhatro.getChildren())
-            {
+            for (DataSnapshot valueChiNhanhNhatro : chinhanhnhatro.getChildren()) {
                 ChiNhanhNhaTroModel chiNhanhNhaTroModel = valueChiNhanhNhatro.getValue(ChiNhanhNhaTroModel.class);
                 Location vitrinhatro = new Location("");
                 vitrinhatro.setLatitude(chiNhanhNhaTroModel.getLatitude());
                 vitrinhatro.setLongitude(chiNhanhNhaTroModel.getLongtitude());
 
-                double khoangcach = vitrihientai.distanceTo(vitrinhatro)/10000;
+                double khoangcach = vitrihientai.distanceTo(vitrinhatro) / 10000;
                 chiNhanhNhaTroModel.setKhoangcach(khoangcach);
 
                 chiNhanhNhaTroModels.add(chiNhanhNhaTroModel);

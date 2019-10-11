@@ -1,7 +1,7 @@
 package com.example.appnhatro.Model;
 
-public class TienIchModel  {
-    String hinhtienich,tentienich;
+public class TienIchModel {
+    String hinhtienich, tentienich;
 
     public String getHinhtienich() {
         return hinhtienich;

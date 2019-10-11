@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/white"
@@ -28,8 +27,8 @@
         android:layout_marginLeft="10dp"
         android:text="Ten nha tro"
         android:textAllCaps="false"
-        android:textStyle="bold"
         android:textColor="@color/black"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/txtNoiDungBinhLuan"
         app:layout_constraintEnd_toStartOf="@+id/txtDiem"
         app:layout_constraintHorizontal_bias="0.5"
