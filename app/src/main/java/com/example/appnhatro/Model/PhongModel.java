@@ -1,7 +1,7 @@
 package com.example.appnhatro.Model;
 
 public class PhongModel {
-    String maphong,tenphong,hinhanh;
+    String maphong, tenphong, hinhanh;
     long giatien;
 
     public String getMaphong() {

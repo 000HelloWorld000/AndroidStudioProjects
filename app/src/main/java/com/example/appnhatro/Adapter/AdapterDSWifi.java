@@ -47,8 +47,9 @@ public class AdapterDSWifi extends RecyclerView.Adapter<AdapterDSWifi.ViewHolder
         return wifiNhaTroList.size();
     }
 
-    public class ViewHolderDSWifi extends RecyclerView.ViewHolder{
-        TextView txtTenwifi,txtTenMatKhauWiFi,txtNgayDang;
+    public class ViewHolderDSWifi extends RecyclerView.ViewHolder {
+        TextView txtTenwifi, txtTenMatKhauWiFi, txtNgayDang;
+
         public ViewHolderDSWifi(@NonNull View itemView) {
             super(itemView);
             txtNgayDang = itemView.findViewById(R.id.txtNgayDang);

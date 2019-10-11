@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LauModel {
-    String malau,tenlau;
+    String malau, tenlau;
     List<PhongModel> phongModelList;
 
     public List<PhongModel> getPhongModelList() {
